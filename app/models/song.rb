@@ -1,5 +1,5 @@
 class Song < ApplicationRecord
-    validates :title, presence: true, uniqueness: { scope: [:artist_name, :released] }
+    validates :title, presence: true, uniqueness: { scope: [:artist_name, :release_year] }
     # validates :title, uniqueness: { scope: [:artist_name, :released] }
     #   message: "cannot be repeated by the same artist in the same year" }
 
