@@ -11,6 +11,10 @@ class SongsController < ApplicationController
     def show
         set_song
     end
+    
+    def edit
+        set_song
+    end
 
     def create
         @song = Song.new(song_params)
@@ -32,10 +36,6 @@ class SongsController < ApplicationController
         else
             render :edit
         end
-    end
-
-    def edit
-        set_song
     end
 
     def destroy

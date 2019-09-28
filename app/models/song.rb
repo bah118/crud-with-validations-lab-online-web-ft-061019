@@ -1,6 +1,6 @@
 class Song < ApplicationRecord
     validates :title, presence: true, uniqueness: { scope: [:artist_name, :release_year] }
-    # validates :title, uniqueness: { scope: [:artist_name, :released] }
+    # validates :title, uniqueness: { scope: [:artist_name, :release_year] }
     #   message: "cannot be repeated by the same artist in the same year" }
 
     validates :released, inclusion: { in: [true, false] }
@@ -8,7 +8,7 @@ class Song < ApplicationRecord
     
     # validates :release_year, presence: true, if: :released?
 
-    validates :release_year, numericality: {less_than_or_equal_to: Date.today.year} 
+    validates :release_year, numericality: {less_than_or_equal_to: Date.today.year}, presence: true, if: :released?
 
     def released?
         self.released
